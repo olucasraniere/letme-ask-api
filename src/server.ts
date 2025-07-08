@@ -36,8 +36,7 @@ const start = async () => {
     const port = process.env.PORT ? parseInt(process.env.PORT) : 3333
 
     await app.listen({ port })
-    //console.log(`Port: ${process.env.PORT}`)
-    console.log(`🚀 HTTP server running in http://localhost:${port}`)
+    //console.log(`🚀 HTTP server running in http://localhost:${port}`)
   } catch (err) {
     app.log.error(err)
     process.exit(1)

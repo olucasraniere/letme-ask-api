@@ -4,7 +4,7 @@ import { z } from 'zod'
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
   PORT: z.string().transform(Number).default('3333'),
-  DATABASE_URL: z.string().default('file:./dev.db'),
+  DATABASE_URL: z.string().url().startsWith('postgresql://'),
   LOG_LEVEL: z.enum(['error', 'warn', 'info', 'debug']).default('info'),
   CORS_ORIGIN: z.string().default('*'),
 })

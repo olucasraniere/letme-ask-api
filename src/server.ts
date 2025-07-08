@@ -1,6 +1,7 @@
 import { fastify } from 'fastify'
-import { serializerCompiler, validatorCompiler, ZodTypeProvider } from 'fastify-type-provider-zod'
 import { fastifyCors } from '@fastify/cors'
+import { sql } from './db/connection.ts'
+import { serializerCompiler, validatorCompiler, ZodTypeProvider } from 'fastify-type-provider-zod'
 import { environmentConfig } from './config/environment.ts'
 
 const app = fastify({

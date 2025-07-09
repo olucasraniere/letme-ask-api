@@ -1,8 +1,8 @@
 import { fastify } from 'fastify'
 import { fastifyCors } from '@fastify/cors'
-import { sql } from './db/connection.ts'
 import { serializerCompiler, validatorCompiler, ZodTypeProvider } from 'fastify-type-provider-zod'
 import { environmentConfig } from './config/environment.ts'
+import { getRoomsRoute } from './http/routes/get-rooms.ts'
 
 const app = fastify({
   logger: {
@@ -31,6 +31,8 @@ app.get('/', async (request, reply) => {
 app.get('/health', async (request, reply) => {
   return { status: 'ok', timestamp: new Date().toISOString() }
 })
+
+app.register(getRoomsRoute)
 
 const start = async () => {
   try {
